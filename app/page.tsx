@@ -5,6 +5,7 @@ import StructuredData from "./components/StructuredData";
 import LoadingScreen from "./components/LoadingScreen";
 import Hero from "./components/Hero";
 import FeaturedDeals from "./components/FeaturedDeals";
+import StickerPeel from "./components/StickerPeel";
 import ShinyText from "./components/ShinyText";
 import Link from 'next/link';
 import { Home, DollarSign, Clock, TrendingUp, Users, Shield, Star } from 'lucide-react';
@@ -164,8 +165,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        {/* Testimonials with Interactive Sticker */}
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-14 md:mb-16">
               <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-3 sm:mb-4">
@@ -176,44 +177,68 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Left: Testimonials */}
+              <div className="space-y-6">
+                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4">
+                    &quot;Sold our house in Dover in just 8 days. No hassle, fair price, and professional service throughout.&quot;
+                  </p>
+                  <p className="text-sm sm:text-base font-semibold text-gray-900">- Sarah M., Dover</p>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4">
-                  &quot;Sold our house in Dover in just 8 days. No hassle, fair price, and professional service throughout.&quot;
-                </p>
-                <p className="text-sm sm:text-base font-semibold text-gray-900">- Sarah M., Dover</p>
+
+                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4">
+                    &quot;Amazing off-market deals! Built my rental portfolio with 3 properties from Nitron Digital.&quot;
+                  </p>
+                  <p className="text-sm sm:text-base font-semibold text-gray-900">- Mike T., Investor</p>
+                </div>
+
+                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4">
+                    &quot;They bought our house as-is. Saved us thousands on repairs and agent fees.&quot;
+                  </p>
+                  <p className="text-sm sm:text-base font-semibold text-gray-900">- John & Lisa K., Rochester</p>
+                </div>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
+              {/* Right: Interactive Sticker */}
+              <div className="relative h-96 lg:h-[500px] flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-white rounded-2xl">
+                <div className="text-center mb-8 z-10">
+                  <p className="text-sm sm:text-base text-primary font-semibold mb-2">✨ Powered by Nitron Digital ✨</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Try dragging our logo!</p>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4">
-                  &quot;Amazing off-market deals! Built my rental portfolio with 3 properties from Nitron Digital.&quot;
-                </p>
-                <p className="text-sm sm:text-base font-semibold text-gray-900">- Mike T., Investor</p>
-              </div>
-
-              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4">
-                  &quot;They bought our house as-is. Saved us thousands on repairs and agent fees.&quot;
-                </p>
-                <p className="text-sm sm:text-base font-semibold text-gray-900">- John & Lisa K., Rochester</p>
+                <StickerPeel
+                  imageSrc="/nitron-logo.svg"
+                  width={180}
+                  rotate={20}
+                  peelBackHoverPct={25}
+                  peelBackActivePct={35}
+                  shadowIntensity={0.7}
+                  lightingIntensity={0.15}
+                  initialPosition={{ x: 80, y: 120 }}
+                />
               </div>
             </div>
           </div>
+
+          {/* Decorative background */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
         </section>
 
         {/* How It Works Section */}
