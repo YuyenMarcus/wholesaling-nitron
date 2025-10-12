@@ -168,17 +168,31 @@ export default function HomePage() {
         {/* Testimonials with Interactive Sticker */}
         <section className="py-12 sm:py-16 md:py-20 bg-gray-50 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-14 md:mb-16">
+            <div className="text-center mb-12 sm:mb-14 md:mb-16 relative">
               <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-3 sm:mb-4">
                 What Our Customers Say
               </h2>
               <p className="text-lg sm:text-xl text-gray-600">
                 Real stories from real people
               </p>
+              
+              {/* Draggable Sticker beside title */}
+              <div className="absolute top-0 right-0 sm:right-10 md:right-20 h-32 w-32 pointer-events-auto">
+                <StickerPeel
+                  imageSrc="/sticker-logo.png"
+                  width={120}
+                  rotate={20}
+                  peelBackHoverPct={25}
+                  peelBackActivePct={35}
+                  shadowIntensity={0.7}
+                  lightingIntensity={0.15}
+                  initialPosition={{ x: 0, y: 0 }}
+                />
+              </div>
             </div>
 
             {/* Testimonials Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -213,22 +227,6 @@ export default function HomePage() {
                   &quot;I bought this house through Nitron Digital, refurbished it, and tripled my money. Best investment decision I&apos;ve made!&quot;
                 </p>
                 <p className="text-sm sm:text-base font-semibold text-gray-900">- Brandon A Marcus, Rochester</p>
-              </div>
-            </div>
-
-            {/* Interactive Sticker - Centered Below */}
-            <div className="flex justify-center">
-              <div className="relative h-64 sm:h-80 w-full max-w-md flex items-center justify-center">
-                <StickerPeel
-                  imageSrc="/sticker-logo.png"
-                  width={200}
-                  rotate={15}
-                  peelBackHoverPct={25}
-                  peelBackActivePct={35}
-                  shadowIntensity={0.7}
-                  lightingIntensity={0.15}
-                  initialPosition={{ x: 100, y: 80 }}
-                />
               </div>
             </div>
           </div>

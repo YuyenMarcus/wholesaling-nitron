@@ -118,10 +118,16 @@
 }
 
 .sticker-wrapper {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  cursor: grab;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  user-select: none;
+}
+
+.sticker-wrapper:active {
+  cursor: grabbing;
 }
 
 /* Mobile-specific optimizations */

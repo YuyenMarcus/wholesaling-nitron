@@ -37,6 +37,8 @@ const StickerPeel: React.FC<StickerPeelProps> = ({
   const dragTargetRef = useRef<HTMLDivElement>(null);
   const pointLightRef = useRef<SVGFEPointLightElement>(null);
   const pointLightFlippedRef = useRef<SVGFEPointLightElement>(null);
+  const isDraggingRef = useRef(false);
+  const dragStartRef = useRef({ x: 0, y: 0 });
 
   const defaultPadding = 10;
 
@@ -59,8 +61,50 @@ const StickerPeel: React.FC<StickerPeelProps> = ({
     gsap.set(target, { x: startX, y: startY });
   }, [initialPosition]);
 
-  // Draggable functionality removed for compatibility
-  // The sticker will stay in place but still have the peel effect
+  // Native JavaScript drag functionality (no GSAP plugin needed)
+  useEffect(() => {
+    const target = dragTargetRef.current;
+    if (!target) return;
+
+    const handleMouseDown = (e: MouseEvent) => {
+      isDraggingRef.current = true;
+      const rect = target.getBoundingClientRect();
+      dragStartRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+      target.style.cursor = 'grabbing';
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDraggingRef.current) return;
+      
+      const parentRect = target.parentElement?.getBoundingClientRect();
+      if (!parentRect) return;
+
+      const newX = e.clientX - parentRect.left - dragStartRef.current.x;
+      const newY = e.clientY - parentRect.top - dragStartRef.current.y;
+
+      gsap.set(target, { x: newX, y: newY });
+    };
+
+    const handleMouseUp = () => {
+      isDraggingRef.current = false;
+      if (target) {
+        target.style.cursor = 'grab';
+      }
+    };
+
+    target.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      target.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
 
   useEffect(() => {
     const updateLight = (e: MouseEvent) => {
