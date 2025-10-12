@@ -2,10 +2,7 @@
 
 import { useRef, useEffect, useMemo } from 'react';
 import { gsap } from 'gsap';
-import { Draggable } from 'gsap/Draggable';
 import './StickerPeel.css';
-
-gsap.registerPlugin(Draggable);
 
 interface StickerPeelProps {
   imageSrc: string;
@@ -63,64 +60,8 @@ const StickerPeel: React.FC<StickerPeelProps> = ({
     gsap.set(target, { x: startX, y: startY });
   }, [initialPosition]);
 
-  useEffect(() => {
-    const target = dragTargetRef.current;
-    const boundsEl = target?.parentNode as HTMLElement;
-    if (!target || !boundsEl) return;
-
-    draggableInstanceRef.current = Draggable.create(target, {
-      type: 'x,y',
-      bounds: boundsEl,
-      inertia: true,
-      onDrag() {
-        const rot = gsap.utils.clamp(-24, 24, this.deltaX * 0.4);
-        gsap.to(target, { rotation: rot, duration: 0.15, ease: 'power1.out' });
-      },
-      onDragEnd() {
-        const rotationEase = 'power2.out';
-        const duration = 0.8;
-        gsap.to(target, { rotation: 0, duration, ease: rotationEase });
-      }
-    })[0];
-
-    const handleResize = () => {
-      if (draggableInstanceRef.current) {
-        draggableInstanceRef.current.update();
-
-        const currentX = gsap.getProperty(target, 'x') as number;
-        const currentY = gsap.getProperty(target, 'y') as number;
-
-        const boundsRect = boundsEl.getBoundingClientRect();
-        const targetRect = target.getBoundingClientRect();
-
-        const maxX = boundsRect.width - targetRect.width;
-        const maxY = boundsRect.height - targetRect.height;
-
-        const newX = Math.max(0, Math.min(currentX, maxX));
-        const newY = Math.max(0, Math.min(currentY, maxY));
-
-        if (newX !== currentX || newY !== currentY) {
-          gsap.to(target, {
-            x: newX,
-            y: newY,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-        }
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
-      if (draggableInstanceRef.current) {
-        draggableInstanceRef.current.kill();
-      }
-    };
-  }, []);
+  // Draggable functionality removed for compatibility
+  // The sticker will stay in place but still have the peel effect
 
   useEffect(() => {
     const updateLight = (e: MouseEvent) => {
@@ -199,7 +140,7 @@ const StickerPeel: React.FC<StickerPeelProps> = ({
   );
 
   return (
-    <div className={`draggable ${className}`} ref={dragTargetRef} style={cssVars}>
+    <div className={`sticker-wrapper ${className}`} ref={dragTargetRef} style={cssVars}>
       <svg width="0" height="0">
         <defs>
           <filter id="pointLight">

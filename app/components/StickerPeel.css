@@ -117,23 +117,15 @@
   filter: url(#expandAndFill);
 }
 
-.draggable {
-  position: absolute;
-  cursor: grab;
+.sticker-wrapper {
+  position: relative;
+  display: inline-block;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
 
-.draggable:active {
-  cursor: grabbing;
-}
-
 /* Mobile-specific optimizations */
 @media (hover: none) and (pointer: coarse) {
-  .draggable {
-    cursor: default;
-  }
-
   .sticker-container {
     touch-action: none;
   }

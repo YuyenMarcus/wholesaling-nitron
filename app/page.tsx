@@ -221,7 +221,7 @@ export default function HomePage() {
               <div className="relative h-96 lg:h-[500px] flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-white rounded-2xl">
                 <div className="text-center mb-8 z-10">
                   <p className="text-sm sm:text-base text-primary font-semibold mb-2">✨ Powered by Nitron Digital ✨</p>
-                  <p className="text-xs sm:text-sm text-gray-500">Try dragging our logo!</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Hover over our logo!</p>
                 </div>
                 <StickerPeel
                   imageSrc="/nitron-logo.svg"
