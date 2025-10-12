@@ -35,33 +35,40 @@ h1, h2, h3, h4 {
 }
 
 /* Hero Background Image Optimization */
-section[class*="bg-cover"] {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+.hero-bg {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: scroll !important;
 }
 
 /* Ensure hero section fills viewport properly */
 @media (max-width: 768px) {
-  section[class*="min-h-screen"] {
+  section[class*="min-h-screen"],
+  section.h-screen {
     min-height: 100vh;
     min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
   }
-}
-
-/* Prevent background image stretch on ultra-wide screens */
-@media (min-aspect-ratio: 21/9) {
-  section[class*="bg-cover"] {
-    background-size: auto 100%;
-    background-position: center center;
+  
+  .hero-bg {
+    background-size: cover !important;
+    background-position: center !important;
   }
 }
 
-/* Optimize for portrait mobile */
-@media (max-aspect-ratio: 9/16) {
-  section[class*="bg-cover"] {
-    background-size: cover;
-    background-position: center center;
+/* Medium screens - tablets and small laptops */
+@media (min-width: 768px) and (max-width: 1280px) {
+  .hero-bg {
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+}
+
+/* Prevent background image issues on all screen sizes */
+@media (min-width: 1280px) {
+  .hero-bg {
+    background-size: cover !important;
+    background-position: center center !important;
   }
 }
 

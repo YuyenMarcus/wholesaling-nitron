@@ -65,11 +65,11 @@ export default function Hero() {
     >
       {/* Responsive Background */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hero-bg"
         style={{
           backgroundImage: "url('/images/suburban-bg.jpg')",
-          backgroundSize: "100% auto",
-          backgroundPosition: "center bottom",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
         }}
       />

@@ -24,7 +24,8 @@ export default function NavBar() {
             <img 
               src="/nitron-logo.svg" 
               alt="Nitron Digital"
-              className="h-8 sm:h-10 w-auto"
+              className="h-12 sm:h-14 w-auto"
+              style={{ filter: 'brightness(0) saturate(100%) invert(37%) sepia(93%) saturate(1352%) hue-rotate(187deg) brightness(101%) contrast(101%)' }}
             />
             <span className="text-lg sm:text-xl font-bold text-primary font-heading">Nitron Digital</span>
           </Link>
