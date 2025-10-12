@@ -20,14 +20,13 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
             <img 
               src="/nitron-logo.svg" 
               alt="Nitron Digital"
-              className="h-10 w-auto"
-              style={{ filter: 'invert(45%) sepia(93%) saturate(1352%) hue-rotate(187deg) brightness(101%) contrast(101%)' }}
+              className="h-8 sm:h-10 w-auto"
             />
-            <span className="text-xl font-bold text-primary font-heading">Nitron Digital</span>
+            <span className="text-lg sm:text-xl font-bold text-primary font-heading">Nitron Digital</span>
           </Link>
 
           {/* Desktop Navigation */}
