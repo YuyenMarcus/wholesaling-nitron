@@ -18,13 +18,14 @@ export default function NavBar() {
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20 sm:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
             <img 
               src="/nitron-logo.png" 
               alt="Nitron Digital"
-              className="h-14 sm:h-16 w-auto"
+              className="h-20 sm:h-24 w-auto"
+              style={{ filter: 'hue-rotate(200deg) saturate(150%) brightness(1.2)' }}
             />
             <span className="text-lg sm:text-xl font-bold text-primary font-heading">Nitron Digital</span>
           </Link>
