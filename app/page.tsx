@@ -177,48 +177,48 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Left: Testimonials */}
-              <div className="space-y-6">
-                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4">
-                    &quot;Sold our house in Dover in just 8 days. No hassle, fair price, and professional service throughout.&quot;
-                  </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-900">- Sarah M., Dover</p>
+            {/* Testimonials Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
-
-                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4">
-                    &quot;Amazing off-market deals! Built my rental portfolio with 3 properties from Nitron Digital.&quot;
-                  </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-900">- Mike T., Investor</p>
-                </div>
-
-                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4">
-                    &quot;I bought this house through Nitron Digital, refurbished it, and tripled my money. Best investment decision I&apos;ve made!&quot;
-                  </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-900">- Brandon A Marcus, Rochester</p>
-                </div>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
+                  &quot;Sold our house in Dover in just 8 days. No hassle, fair price, and professional service throughout.&quot;
+                </p>
+                <p className="text-sm sm:text-base font-semibold text-gray-900">- Sarah M., Dover</p>
               </div>
 
-              {/* Right: Interactive Sticker */}
-              <div className="relative h-96 lg:h-[500px] flex items-center justify-center">
+              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
+                  &quot;Amazing off-market deals! Built my rental portfolio with 3 properties from Nitron Digital.&quot;
+                </p>
+                <p className="text-sm sm:text-base font-semibold text-gray-900">- Mike T., Investor</p>
+              </div>
+
+              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm sm:text-base text-gray-600 mb-4">
+                  &quot;I bought this house through Nitron Digital, refurbished it, and tripled my money. Best investment decision I&apos;ve made!&quot;
+                </p>
+                <p className="text-sm sm:text-base font-semibold text-gray-900">- Brandon A Marcus, Rochester</p>
+              </div>
+            </div>
+
+            {/* Interactive Sticker - Centered Below */}
+            <div className="flex justify-center">
+              <div className="relative h-64 sm:h-80 w-full max-w-md flex items-center justify-center">
                 <StickerPeel
                   imageSrc="/sticker-logo.png"
                   width={200}
@@ -227,7 +227,7 @@ export default function HomePage() {
                   peelBackActivePct={35}
                   shadowIntensity={0.7}
                   lightingIntensity={0.15}
-                  initialPosition={{ x: 100, y: 150 }}
+                  initialPosition={{ x: 100, y: 80 }}
                 />
               </div>
             </div>
