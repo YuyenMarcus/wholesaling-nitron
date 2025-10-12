@@ -1,0 +1,47 @@
+.shiny-text {
+  color: #93c5fd; /* light blue base color */
+  background: linear-gradient(
+    120deg,
+    rgba(147, 197, 253, 0.7) 30%,   /* light blue edge */
+    rgba(59, 130, 246, 1) 50%,      /* bright blue highlight */
+    rgba(147, 197, 253, 0.7) 70%    /* light blue edge */
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+/* White variant for dark backgrounds - only for hero titles on /sell and /buy pages */
+section[class*="from-blue"] .shiny-text,
+section[class*="from-accent"] .shiny-text {
+  color: #ffffff;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.9) 30%,   /* white edge */
+    rgba(96, 165, 250, 1) 50%,      /* bright blue highlight */
+    rgba(255, 255, 255, 0.9) 70%    /* white edge */
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
+}
+

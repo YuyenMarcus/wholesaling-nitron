@@ -1,0 +1,29 @@
+.shiny-text-white {
+  color: #ffffff; /* white base color */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.7) 30%,   /* white edge */
+    rgba(191, 219, 254, 1) 50%,     /* light blue highlight */
+    rgba(255, 255, 255, 0.7) 70%    /* white edge */
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text-white.disabled {
+  animation: none;
+}
+
