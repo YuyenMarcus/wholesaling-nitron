@@ -22,9 +22,9 @@ export default function NavBar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
             <img 
-              src="/nitron-logo.svg" 
+              src="/nitron-logo.png" 
               alt="Nitron Digital"
-              className="h-12 sm:h-14 w-auto logo-blue"
+              className="h-14 sm:h-16 w-auto"
             />
             <span className="text-lg sm:text-xl font-bold text-primary font-heading">Nitron Digital</span>
           </Link>
