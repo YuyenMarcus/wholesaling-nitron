@@ -177,10 +177,10 @@ export default function HomePage() {
               </p>
               
               {/* Draggable Sticker beside title */}
-              <div className="absolute top-0 right-0 sm:right-10 md:right-20 h-64 w-64 pointer-events-auto">
+              <div className="absolute top-0 right-0 sm:right-10 md:right-20 h-[32rem] w-[32rem] pointer-events-auto">
                 <StickerPeel
                   imageSrc="/sticker-logo.png"
-                  width={240}
+                  width={480}
                   rotate={20}
                   peelBackHoverPct={25}
                   peelBackActivePct={35}
