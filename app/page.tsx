@@ -211,9 +211,9 @@ export default function HomePage() {
                     ))}
                   </div>
                   <p className="text-sm sm:text-base text-gray-600 mb-4">
-                    &quot;They bought our house as-is. Saved us thousands on repairs and agent fees.&quot;
+                    &quot;I bought this house through Nitron Digital, refurbished it, and tripled my money. Best investment decision I&apos;ve made!&quot;
                   </p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-900">- John & Lisa K., Rochester</p>
+                  <p className="text-sm sm:text-base font-semibold text-gray-900">- Brandon A Marcus, Rochester</p>
                 </div>
               </div>
 
