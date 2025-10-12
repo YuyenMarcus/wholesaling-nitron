@@ -21,6 +21,11 @@ h1, h2, h3, h4 {
   font-family: var(--font-heading);
 }
 
+/* Make logo blue - NavBar */
+.logo-blue {
+  filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(187deg) brightness(102%) contrast(101%);
+}
+
 /* Cinematic Hero Enhancements */
 @keyframes moveGradient {
   0% { background-position: 0% 50%; }
