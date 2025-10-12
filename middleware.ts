@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   // Get the country from Vercel's geolocation headers
-  const country = request.geo?.country || request.headers.get('x-vercel-ip-country');
+  const country = (request as any).geo?.country || request.headers.get('x-vercel-ip-country');
   
   // Allow access only from United States
   if (country && country !== 'US') {

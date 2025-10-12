@@ -37,7 +37,6 @@ const StickerPeel: React.FC<StickerPeelProps> = ({
   const dragTargetRef = useRef<HTMLDivElement>(null);
   const pointLightRef = useRef<SVGFEPointLightElement>(null);
   const pointLightFlippedRef = useRef<SVGFEPointLightElement>(null);
-  const draggableInstanceRef = useRef<any>(null);
 
   const defaultPadding = 10;
 
