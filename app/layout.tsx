@@ -25,6 +25,12 @@ export const metadata: Metadata = {
     shortcut: "/nitron-logo.svg",
     apple: "/nitron-logo.svg",
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  themeColor: "#2563EB",
 };
 
 export default function RootLayout({

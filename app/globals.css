@@ -64,3 +64,28 @@ section[class*="bg-cover"] {
     background-position: center center;
   }
 }
+
+/* Mobile Touch Improvements */
+@media (max-width: 768px) {
+  /* Ensure buttons are touch-friendly (minimum 44x44px) */
+  button, a[role="button"], [type="button"], [type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve tap highlighting */
+  button, a {
+    -webkit-tap-highlight-color: rgba(37, 99, 235, 0.2);
+  }
+  
+  /* Better text readability on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Improve scroll performance on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}

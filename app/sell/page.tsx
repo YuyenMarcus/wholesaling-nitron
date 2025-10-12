@@ -65,21 +65,21 @@ export default function SellPage() {
       
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-blue-500 to-blue-600 text-white py-20 px-6">
+        <section className="bg-gradient-to-br from-blue-500 to-blue-600 text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
               <ShinyText
                 text="Sell Your Home Fast for Cash"
                 speed={4}
-                className="text-4xl md:text-5xl font-heading font-bold text-white drop-shadow-2xl"
+                className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white drop-shadow-2xl"
               />
             </div>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-6 sm:mb-8">
               No Fees. No Repairs. No Hassle. Get a Fair Cash Offer in 24 Hours.
             </p>
             <a
               href="#lead-form"
-              className="inline-block bg-white text-primary px-8 py-4 rounded-2xl font-semibold hover:bg-gray-100 transition-colors shadow-xl text-lg"
+              className="inline-block bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold hover:bg-gray-100 transition-colors shadow-xl text-base sm:text-lg min-h-[52px] flex items-center justify-center"
             >
               Get My Cash Offer
             </a>
@@ -87,39 +87,39 @@ export default function SellPage() {
         </section>
 
         {/* Lead Form Section - Moved Up */}
-        <section id="lead-form" className="py-20 bg-gradient-to-br from-slate-50 to-gray-50">
+        <section id="lead-form" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <LeadForm />
           </div>
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-heading font-bold mb-4">
+            <div className="text-center mb-12 sm:mb-14 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-3 sm:mb-4">
                 Why Sell to Us?
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
                 We make selling your house simple, fast, and stress-free
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                   >
-                    <div className="w-14 h-14 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="w-8 h-8 text-primary" />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
+                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-heading font-semibold mb-2">
+                    <h3 className="text-lg sm:text-xl font-heading font-semibold mb-2">
                       {benefit.title}
                     </h3>
-                    <p className="text-gray-600">{benefit.description}</p>
+                    <p className="text-sm sm:text-base text-gray-600">{benefit.description}</p>
                   </div>
                 );
               })}
@@ -128,18 +128,18 @@ export default function SellPage() {
         </section>
 
         {/* Process Section */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-heading font-bold mb-4">
+            <div className="text-center mb-12 sm:mb-14 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-3 sm:mb-4">
                 How It Works
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-lg sm:text-xl text-gray-600">
                 Three simple steps to selling your house
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
               {process.map((item, index) => (
                 <div key={index} className="relative">
                   {/* Connector line (hidden on mobile) */}
@@ -147,14 +147,14 @@ export default function SellPage() {
                     <div className="hidden md:block absolute top-16 left-1/2 w-full h-1 bg-slate-200 -z-10" />
                   )}
 
-                  <div className="bg-gradient-to-br from-slate-50 to-white p-8 rounded-xl border-2 border-slate-200 text-center">
-                    <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">
+                  <div className="bg-gradient-to-br from-slate-50 to-white p-6 sm:p-8 rounded-xl border-2 border-slate-200 text-center">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mx-auto mb-4 shadow-lg">
                       {item.step}
                     </div>
-                    <h3 className="text-xl font-heading font-semibold mb-2">
+                    <h3 className="text-lg sm:text-xl font-heading font-semibold mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
                   </div>
                 </div>
               ))}

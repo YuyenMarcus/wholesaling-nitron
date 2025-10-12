@@ -75,22 +75,22 @@ export default function Hero() {
       />
 
       {/* Hero Content - Zillow-inspired layout */}
-      <div className="relative z-10 text-center text-white px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center text-white px-4 sm:px-6 max-w-5xl mx-auto">
         {/* Primary Headline - Highest hierarchy */}
         <div className="hero-heading mb-6">
           <ShinyText
             text="Inherited it. Need repairs? We'll buy it."
             speed={4}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white drop-shadow-2xl leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white drop-shadow-2xl leading-tight px-2"
           />
         </div>
         
         {/* Supporting Tagline - Secondary hierarchy */}
-        <div className="hero-sub mb-10 max-w-3xl mx-auto">
+        <div className="hero-sub mb-8 sm:mb-10 max-w-3xl mx-auto">
           <ShinyText
             text="Get a fair cash offer for your home today."
             speed={3}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl font-light opacity-90"
+            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light opacity-90 px-2"
           />
         </div>
 
@@ -98,7 +98,7 @@ export default function Hero() {
         <div className="hero-form">
           <form 
             onSubmit={handleSubmit}
-            className="flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl p-2 max-w-3xl mx-auto gap-2"
+            className="flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl p-2 sm:p-3 max-w-3xl mx-auto gap-2"
           >
             <input
               type="text"
@@ -107,7 +107,7 @@ export default function Hero() {
               onChange={handleChange}
               placeholder="Enter your property address or ZIP code"
               disabled={isSubmitting}
-              className="flex-grow p-4 rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+              className="flex-grow p-4 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
             />
             <input
               type="text"
@@ -116,7 +116,7 @@ export default function Hero() {
               onChange={handleChange}
               placeholder="Your name"
               disabled={isSubmitting}
-              className="md:w-40 p-4 rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+              className="md:w-40 p-4 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
             />
             <input
               type="tel"
@@ -125,12 +125,12 @@ export default function Hero() {
               onChange={handleChange}
               placeholder="Phone"
               disabled={isSubmitting}
-              className="md:w-40 p-4 rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+              className="md:w-40 p-4 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
             />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-700 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg"
+              className="bg-blue-600 text-white font-semibold px-8 py-4 text-base sm:text-lg rounded-xl hover:bg-blue-700 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg min-h-[56px]"
             >
               {isSubmitting ? 'Sending...' : 'Get Cash Offer →'}
             </button>
@@ -154,17 +154,17 @@ export default function Hero() {
         </div>
 
         {/* Trust Indicators - Tertiary hierarchy */}
-        <div className="hero-trust mt-12 flex flex-wrap justify-center gap-6 text-xs sm:text-sm md:text-base">
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 sm:px-5 py-2 sm:py-3 rounded-full font-medium">
-            <span className="text-lg sm:text-xl text-gray-400">✓</span>
+        <div className="hero-trust mt-8 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm md:text-base px-2">
+          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-full font-medium">
+            <span className="text-base sm:text-lg md:text-xl text-gray-400">✓</span>
             <ShinyText text="No Repairs Needed" speed={4} />
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 sm:px-5 py-2 sm:py-3 rounded-full font-medium">
-            <span className="text-lg sm:text-xl text-gray-400">✓</span>
+          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-full font-medium">
+            <span className="text-base sm:text-lg md:text-xl text-gray-400">✓</span>
             <ShinyText text="No Agent Fees" speed={4} />
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 sm:px-5 py-2 sm:py-3 rounded-full font-medium">
-            <span className="text-lg sm:text-xl text-gray-400">✓</span>
+          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-full font-medium">
+            <span className="text-base sm:text-lg md:text-xl text-gray-400">✓</span>
             <ShinyText text="Close in 7 Days" speed={4} />
           </div>
         </div>
