@@ -218,20 +218,16 @@ export default function HomePage() {
               </div>
 
               {/* Right: Interactive Sticker */}
-              <div className="relative h-96 lg:h-[500px] flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-white rounded-2xl">
-                <div className="text-center mb-8 z-10">
-                  <p className="text-sm sm:text-base text-primary font-semibold mb-2">✨ Powered by Nitron Digital ✨</p>
-                  <p className="text-xs sm:text-sm text-gray-500">Hover over our logo!</p>
-                </div>
+              <div className="relative h-96 lg:h-[500px] flex items-center justify-center">
                 <StickerPeel
                   imageSrc="/sticker-logo.png"
-                  width={180}
-                  rotate={20}
+                  width={200}
+                  rotate={15}
                   peelBackHoverPct={25}
                   peelBackActivePct={35}
                   shadowIntensity={0.7}
                   lightingIntensity={0.15}
-                  initialPosition={{ x: 80, y: 120 }}
+                  initialPosition={{ x: 100, y: 150 }}
                 />
               </div>
             </div>
