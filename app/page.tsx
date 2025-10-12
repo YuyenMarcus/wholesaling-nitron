@@ -224,7 +224,7 @@ export default function HomePage() {
                   <p className="text-xs sm:text-sm text-gray-500">Hover over our logo!</p>
                 </div>
                 <StickerPeel
-                  imageSrc="/nitron-logo.svg"
+                  imageSrc="/sticker-logo.png"
                   width={180}
                   rotate={20}
                   peelBackHoverPct={25}
