@@ -22,10 +22,10 @@ export default function NavBar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
             <img 
-              src="/nitron-logo.png" 
+              src="/nitron-logo.svg" 
               alt="Nitron Digital"
               className="h-20 sm:h-24 w-auto"
-              style={{ filter: 'brightness(0) saturate(100%) invert(37%) sepia(93%) saturate(1352%) hue-rotate(187deg) brightness(101%) contrast(101%)' }}
+              style={{ filter: 'brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(187deg) brightness(102%) contrast(101%)' }}
             />
             <span className="text-lg sm:text-xl font-bold text-primary font-heading">Nitron Digital</span>
           </Link>
