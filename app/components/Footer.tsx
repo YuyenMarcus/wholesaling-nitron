@@ -10,10 +10,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">N</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="/nitron-logo.png" 
+                alt="Nitron Digital"
+                className="h-12 w-auto"
+                style={{ filter: 'brightness(0) saturate(100%) invert(100%)' }}
+              />
               <span className="text-xl font-bold text-white font-heading">Nitron Digital</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
@@ -68,16 +71,12 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
-                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>(555) 123-4567</span>
-              </li>
-              <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>info@nitrondigital.com</span>
+                <span>julien@nitron.digital</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>123 Main Street<br />Rochester, NH 03867</span>
+                <span>923 Elm Street<br />Manchester, NH 03101</span>
               </li>
             </ul>
           </div>

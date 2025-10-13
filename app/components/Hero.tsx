@@ -98,7 +98,7 @@ export default function Hero() {
         <div className="hero-form">
           <form 
             onSubmit={handleSubmit}
-            className="flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl p-2 sm:p-3 max-w-3xl mx-auto gap-2"
+            className="flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl p-1 sm:p-2 max-w-3xl mx-auto gap-2"
           >
             <input
               type="text"
