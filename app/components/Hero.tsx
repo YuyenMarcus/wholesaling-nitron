@@ -107,7 +107,7 @@ export default function Hero() {
               onChange={handleChange}
               placeholder="Enter your property address or ZIP code"
               disabled={isSubmitting}
-              className="flex-grow p-4 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+              className="flex-grow px-4 py-2.5 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
             />
             <input
               type="text"
@@ -116,7 +116,7 @@ export default function Hero() {
               onChange={handleChange}
               placeholder="Your name"
               disabled={isSubmitting}
-              className="md:w-40 p-4 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+              className="md:w-40 px-4 py-2.5 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
             />
             <input
               type="tel"
@@ -125,12 +125,12 @@ export default function Hero() {
               onChange={handleChange}
               placeholder="Phone"
               disabled={isSubmitting}
-              className="md:w-40 p-4 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+              className="md:w-40 px-4 py-2.5 text-base sm:text-lg rounded-xl text-gray-800 outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
             />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-blue-600 text-white font-semibold px-8 py-4 text-base sm:text-lg rounded-xl hover:bg-blue-700 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg min-h-[56px]"
+              className="bg-blue-600 text-white font-semibold px-8 py-2.5 text-base sm:text-lg rounded-xl hover:bg-blue-700 transition-all disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg"
             >
               {isSubmitting ? 'Sending...' : 'Get Cash Offer →'}
             </button>
