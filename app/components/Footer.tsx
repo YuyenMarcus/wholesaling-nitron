@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/nitron-logo.png" 
+                src="/nitron-logo.svg" 
                 alt="Nitron Digital"
                 className="h-12 w-auto"
                 style={{ filter: 'brightness(0) saturate(100%) invert(100%)' }}
