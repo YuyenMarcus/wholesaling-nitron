@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   title: "Sell Your NH House Fast | Nitron Digital Wholesaling",
   description: "We buy houses fast for cash in Rochester, Dover, and across New Hampshire. No repairs, no fees — close in as little as 7 days.",
   icons: {
-    icon: "/nitron-logo.svg",
-    shortcut: "/nitron-logo.svg",
-    apple: "/nitron-logo.svg",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
   viewport: {
     width: "device-width",

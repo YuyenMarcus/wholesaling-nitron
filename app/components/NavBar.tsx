@@ -21,10 +21,17 @@ export default function NavBar() {
         <div className="flex justify-between items-center h-20 sm:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
+            {/* Parent Company Logo */}
+            <img 
+              src="/logo.svg" 
+              alt="Parent Company"
+              className="h-12 sm:h-14 w-auto"
+            />
+            {/* Nitron Digital Logo */}
             <img 
               src="/nitron-logo.svg" 
               alt="Nitron Digital"
-              className="h-20 sm:h-24 w-auto"
+              className="h-16 sm:h-20 w-auto"
               style={{ filter: 'brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(1352%) hue-rotate(187deg) brightness(102%) contrast(101%)' }}
             />
             <span className="text-lg sm:text-xl font-bold text-primary font-heading">Nitron Digital</span>
@@ -46,7 +53,7 @@ export default function NavBar() {
               );
             })}
             <Link
-              href="/sell"
+              href="https://wholesaling.nuvio.cloud/sell"
               className="bg-primary hover:opacity-90 text-white px-6 py-2 rounded-xl font-semibold transition-opacity"
             >
               Get Cash Offer
@@ -83,7 +90,7 @@ export default function NavBar() {
               );
             })}
             <Link
-              href="/sell"
+              href="https://wholesaling.nuvio.cloud/sell"
               onClick={() => setIsOpen(false)}
               className="block w-full bg-primary hover:opacity-90 text-white text-center px-6 py-3 rounded-xl font-semibold transition-opacity mt-4"
             >

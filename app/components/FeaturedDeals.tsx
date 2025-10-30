@@ -79,7 +79,7 @@ export default function FeaturedDeals() {
             Join hundreds of satisfied homeowners who sold their homes fast for cash
           </p>
           <a
-            href="#hero"
+            href="/sell"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded-xl transition-all shadow-lg hover:shadow-xl"
           >
             Get Your Free Cash Offer

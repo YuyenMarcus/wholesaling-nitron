@@ -8,7 +8,7 @@
 
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import StructuredData from "../components/StructuredData";
 import AiSchemaBuy from "../components/AiSchemaBuy";
 import ShinyText from "../components/ShinyText";
@@ -18,6 +18,10 @@ import { TrendingUp, MapPin, DollarSign, Clock, Target, Users, Home, BedDouble }
 
 export default function BuyPage() {
   const availableDeals = getAvailableDeals();
+  const [buyerForm, setBuyerForm] = useState({ name: '', email: '', phone: '', areas: '', investorType: 'All Types' });
+  const [selectedDealId, setSelectedDealId] = useState<string | null>(null);
+  const [buyerSubmitting, setBuyerSubmitting] = useState(false);
+  const [buyerStatus, setBuyerStatus] = useState('');
 
   useEffect(() => {
     // Animate deal cards with mask reveal and parallax
@@ -89,6 +93,35 @@ export default function BuyPage() {
         return '🗺️';
       default:
         return '🏡';
+    }
+  };
+
+  const handleBuyerChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setBuyerForm((p) => ({ ...p, [name]: value }));
+  };
+
+  const handleBuyerSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setBuyerSubmitting(true);
+    setBuyerStatus('Sending...');
+    try {
+      const res = await fetch('/api/deal-requests', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(buyerForm),
+      });
+      if (res.ok) {
+        setBuyerStatus('Request sent. We will contact you shortly.');
+        setBuyerForm({ name: '', email: '', phone: '', areas: '', investorType: 'All Types' });
+      } else {
+        setBuyerStatus('Error. Please try again.');
+      }
+    } catch (err) {
+      setBuyerStatus('Error. Please try again.');
+    } finally {
+      setBuyerSubmitting(false);
+      setTimeout(() => setBuyerStatus(''), 5000);
     }
   };
 
@@ -237,7 +270,15 @@ export default function BuyPage() {
                     </div>
 
                     {/* CTA */}
-                    <button className="w-full mt-6 bg-primary hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-opacity">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedDealId(deal.id);
+                        const el = document.getElementById('join-form');
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }}
+                      className="w-full mt-6 bg-primary hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-opacity"
+                    >
                       Request Details
                     </button>
                   </div>
@@ -247,76 +288,95 @@ export default function BuyPage() {
           </div>
         </section>
 
-        {/* Join Buyers List Section */}
+        {/* Request Details Section */}
         <section id="join-form" className="py-20 bg-gradient-to-br from-primary to-blue-800 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-heading font-bold mb-4">
-                Join Our Exclusive Buyers List
+                Request Details
               </h2>
-              <p className="text-xl text-blue-100">
-                Get notified first when new deals become available
+              <p className="text-xl text-white">
+                Get notified first and receive details about the deals you like
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
-              <form className="space-y-6">
+            <div className="rounded-2xl shadow-2xl p-8 md:p-12 bg-white/10 border border-white/20">
+              <form className="space-y-6" onSubmit={handleBuyerSubmit}>
+                {/* capture which deal triggered the request */}
+                {selectedDealId && (
+                  <input type="hidden" name="dealId" value={selectedDealId} />
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="buyer-name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="buyer-name" className="block text-sm font-medium text-white mb-2">
                       Full Name
                     </label>
                     <input
                       type="text"
                       id="buyer-name"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                      name="name"
+                      value={buyerForm.name}
+                      onChange={handleBuyerChange}
+                      className="w-full px-4 py-3 rounded-lg border border-white/40 focus:ring-2 focus:ring-white/70 focus:border-transparent text-white placeholder-white/70 bg-transparent"
                       placeholder="John Investor"
                     />
                   </div>
                   <div>
-                    <label htmlFor="buyer-email" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="buyer-email" className="block text-sm font-medium text-white mb-2">
                       Email Address
                     </label>
                     <input
                       type="email"
                       id="buyer-email"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                      name="email"
+                      value={buyerForm.email}
+                      onChange={handleBuyerChange}
+                      className="w-full px-4 py-3 rounded-lg border border-white/40 focus:ring-2 focus:ring-white/70 focus:border-transparent text-white placeholder-white/70 bg-transparent"
                       placeholder="john@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="buyer-phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="buyer-phone" className="block text-sm font-medium text-white mb-2">
                     Phone Number
                   </label>
                   <input
                     type="tel"
                     id="buyer-phone"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                    name="phone"
+                    value={buyerForm.phone}
+                    onChange={handleBuyerChange}
+                    className="w-full px-4 py-3 rounded-lg border border-white/40 focus:ring-2 focus:ring-white/70 focus:border-transparent text-white placeholder-white/70 bg-transparent"
                     placeholder="555-555-5555"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="buyer-areas" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="buyer-areas" className="block text-sm font-medium text-white mb-2">
                     Areas of Interest
                   </label>
                   <input
                     type="text"
                     id="buyer-areas"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                    name="areas"
+                    value={buyerForm.areas}
+                    onChange={handleBuyerChange}
+                    className="w-full px-4 py-3 rounded-lg border border-white/40 focus:ring-2 focus:ring-white/70 focus:border-transparent text-white placeholder-white/70 bg-transparent"
                     placeholder="Rochester, Dover, Manchester, etc."
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="buyer-type" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="buyer-type" className="block text-sm font-medium text-white mb-2">
                     Investment Type
                   </label>
                   <select
                     id="buyer-type"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900"
+                    name="investorType"
+                    value={buyerForm.investorType}
+                    onChange={handleBuyerChange}
+                    className="w-full px-4 py-3 rounded-lg border border-white/40 focus:ring-2 focus:ring-white/70 focus:border-transparent text-white bg-transparent"
                   >
                     <option>Fix & Flip</option>
                     <option>Rental Properties</option>
@@ -330,10 +390,14 @@ export default function BuyPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-primary hover:opacity-90 text-white font-semibold py-4 rounded-lg transition-opacity shadow-lg"
+                  disabled={buyerSubmitting}
+                  className="w-full bg-white/10 hover:bg-white/20 text-white font-semibold py-4 rounded-lg transition-colors shadow-lg border border-white/20"
                 >
-                  Join Buyers List
+                  {buyerSubmitting ? 'Sending…' : 'Request Details'}
                 </button>
+                {buyerStatus && (
+                  <p className="text-white/90 text-sm mt-2 text-center">{buyerStatus}</p>
+                )}
               </form>
             </div>
           </div>

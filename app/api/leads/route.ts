@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getSupabaseServer } from '@/app/lib/supabase';
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,15 +14,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Log the lead
-    console.log('New lead received:', {
-      name,
-      email: email || 'Not provided',
-      phone,
-      address,
-      message: message || 'Not provided',
-      timestamp: new Date().toISOString(),
-    });
+    // Persist to Supabase
+    try {
+      const supabase = getSupabaseServer();
+      const { error } = await supabase
+        .from('leads')
+        .insert({
+          name,
+          email: email || null,
+          phone,
+          address,
+          message: message || null,
+          source: 'Nitron Digital Wholesaling Website',
+          created_at: new Date().toISOString(),
+        });
+      if (error) {
+        console.error('Supabase insert error:', error);
+      }
+    } catch (dbErr) {
+      console.error('Supabase client error:', dbErr);
+    }
 
     // Send to Google Sheets webhook if configured
     const webhookUrl = process.env.LEADS_WEBHOOK_URL;
@@ -63,7 +75,7 @@ export async function POST(request: NextRequest) {
       console.warn('No LEADS_WEBHOOK_URL configured in environment variables');
     }
 
-    // TODO: Additional CRM integrations
+    // Additional CRM integrations (optional)
     // Examples:
     // - HubSpot API
     // - Salesforce API
